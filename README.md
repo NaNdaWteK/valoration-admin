@@ -5,7 +5,6 @@
 * Install Ruby, Ruby-dev and Ruby-rack:
 
 ```
-sudo apt-get install rerun
 sudo apt-get install ruby ruby-dev ruby-rack
 ```
 
@@ -23,16 +22,10 @@ sudo apt-get install zlib1g-dev liblzma-dev libxslt-dev libxml2-dev
 * Install gems Manualy
 
 ```
+sudo gem install rerun
 sudo gem install rspec
+sudo gem install selenium-webdriver
 sudo gem install capybara
 sudo gem install chromedriver-helper
 sudo gem install nokogiri
 ```
-
-* install the gems in the local folder of the project
-
-`sudo gem install bundler`
-
-`bundle install --path vendor/bundle`
-
-If bundle install fail, use sudo
