@@ -22,10 +22,12 @@ sudo apt-get install zlib1g-dev liblzma-dev libxslt-dev libxml2-dev
 
 * Install gems Manualy
 
+```
 sudo gem install rspec
 sudo gem install capybara
 sudo gem install chromedriver-helper
 sudo gem install nokogiri
+```
 
 * install the gems in the local folder of the project
 
