@@ -1,6 +1,6 @@
 
 module Page
-  class Index
+  class Group
     include Capybara::DSL
 
     def initialize
@@ -12,7 +12,8 @@ module Page
     private
 
     def validate!
-      page.assert_selector('#index')
+      page.assert_selector('#group')
+      page.assert_selector('#submit')
     end
   end
 end
