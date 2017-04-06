@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'json'
+require_relative 'services/groups/service'
 
 class App < Sinatra::Base
   set :public_folder, './public/'
@@ -13,7 +14,8 @@ class App < Sinatra::Base
   end
 
   post '/create-group/add' do
-    result = ['OK']
+    group = JSON.parse(request.body.read)
+    result = Groups::Service.add(group[0])
     result.to_json
   end
 

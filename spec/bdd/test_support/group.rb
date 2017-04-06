@@ -9,6 +9,18 @@ module Page
       validate!
     end
 
+    def fill_group(content)
+      fill_in('group', with: content)
+    end
+
+    def submit_form
+      find('#submit').click
+    end
+
+    def group_added_message?
+      has_css?('.group-message--added')
+    end
+
     private
 
     def validate!

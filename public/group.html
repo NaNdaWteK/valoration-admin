@@ -1,7 +1,8 @@
 <html>
     <body>
-        <form action="#" id="group-form">
-            <input id="group" type="text" placeholder="Group to track">
+        <form action="#" id="group-form" onsubmit="return false;">
+            <div id="message"></div>
+            <input id="group" type="text" name="group" placeholder="Group to track">
             <button id="submit">Add</button>
         </form>
         <script src="js/infrastructure/bus.js"></script>
@@ -11,6 +12,7 @@
         <script src="js/infrastructure/component.js"></script>
 
         <script src="js/components/group/form.js"></script>
+        <script src="js/components/group/message.js"></script>
         <script src="js/components/group/group.js"></script>
         <script src="js/components/group/submit.js"></script>
 

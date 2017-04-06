@@ -7,21 +7,26 @@ Class('Group.Form', {
         Group.Form.Super.call(this, 'group-form');
     },
 
-    empty: function() {
-        Bus.publish('group.empty');
-    },
-
     change: function(group) {
         this.group = group;
     },
 
     add: function() {
-        Bus.publish('group.add', this.group);
+        var group = new Array(this.group);
+        Bus.publish('group.add', group);
     },
 
     added: function(response){
-        this.empty();
-        console.log('Group added');
+        this._empty();
+        this._show(response);
+    },
+
+    _show: function(response){
+        Bus.publish('group.message',response);
+    },
+
+    _empty: function() {
+        Bus.publish('group.empty');
     },
 
     subscribe: function() {
