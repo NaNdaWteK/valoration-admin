@@ -37,12 +37,6 @@ Class('Group.Form', {
         return this.generate(data);
     },
 
-    _generateFormData: function()
-    {
-        var data = [];
-        data.group = this.group;
-        return this.generate(data);
-    },
 
     subscribe: function() {
         Bus.subscribe('group.change', this.change.bind(this));
