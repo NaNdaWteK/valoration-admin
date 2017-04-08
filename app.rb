@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'json'
 require_relative 'services/groups/service'
+require_relative 'services/elements/service'
 
 class App < Sinatra::Base
   set :public_folder, './public/'
@@ -23,7 +24,8 @@ class App < Sinatra::Base
   end
 
   post '/create-element/add' do
-    ['ok'].to_json
+    result = Elements::Service.add(request['element'])
+    result.to_json
   end
 
 end

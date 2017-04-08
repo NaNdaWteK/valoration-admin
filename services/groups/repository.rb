@@ -20,8 +20,8 @@ module Groups
         @groups = []
       end
 
-      def generate_id(identifiers)
-        Digest::MD5.hexdigest(identifiers)
+      def generate_id(*identifiers)
+        Digest::MD5.hexdigest(identifiers.join)
       end
 
       class Group

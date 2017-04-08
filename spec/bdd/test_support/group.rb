@@ -3,7 +3,7 @@ module Page
     include Capybara::DSL
 
     def initialize
-      url = '/'
+      url = '/create-group'
       visit(url)
       validate!
     end
