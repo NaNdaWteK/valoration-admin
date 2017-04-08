@@ -14,8 +14,7 @@ class App < Sinatra::Base
   end
 
   post '/create-group/add' do
-    group = JSON.parse(request.body.read)
-    result = Groups::Service.add(group[0])
+    result = Groups::Service.add(request['group'])
     result.to_json
   end
 

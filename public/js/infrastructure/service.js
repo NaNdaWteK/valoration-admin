@@ -10,15 +10,14 @@ Class('Service', {
         var OK = 200;
 
         request.open('POST', endpoint);
-        request.setRequestHeader('Content-Type', 'application/json');
         request.onreadystatechange = function() {
             if (request.readyState === XMLHttpRequest.DONE) {
-                if (request.status === OK) {
+                if (request.status === 200) {
                     callback (JSON.parse(request.responseText));
                 }
             }
         };
-        request.send(JSON.stringify(data));
+        request.send(data);
     },
 
     subscribe: function() {
