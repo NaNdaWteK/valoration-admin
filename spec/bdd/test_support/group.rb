@@ -21,6 +21,10 @@ module Page
       has_css?('.group-message--added')
     end
 
+    def check_group?(group)
+      has_content?(group)
+    end
+
     private
 
     def validate!
