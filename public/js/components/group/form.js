@@ -27,7 +27,7 @@ Class('Group.Form', {
     },
 
     _empty: function() {
-        Bus.publish('group.empty');
+        Bus.publish('group.empty', 'group.change');
     },
 
     _generateFormData: function()
