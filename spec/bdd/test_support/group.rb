@@ -1,4 +1,3 @@
-
 module Page
   class Group
     include Capybara::DSL
@@ -28,6 +27,7 @@ module Page
     private
 
     def validate!
+      page.assert_selector('#group-form')
       page.assert_selector('#group')
       page.assert_selector('#submit')
     end
