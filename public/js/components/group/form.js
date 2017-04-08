@@ -27,7 +27,14 @@ Class('Group.Form', {
     },
 
     _empty: function() {
-        Bus.publish('group.empty');
+        Bus.publish('group.empty', 'group.change');
+    },
+
+    _generateFormData: function()
+    {
+        var data = [];
+        data.group = this.group;
+        return this.generate(data);
     },
 
     _generateFormData: function()
