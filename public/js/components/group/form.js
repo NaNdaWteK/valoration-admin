@@ -1,6 +1,7 @@
 Class('Group.Form', {
 
     Extends: Component,
+    Implements: SerializeForm,
 
     initialize: function() {
         this.group = '';
@@ -12,8 +13,8 @@ Class('Group.Form', {
     },
 
     add: function() {
-        var group = new Array(this.group);
-        Bus.publish('group.add', group);
+        var formData = this._generateFormData();
+        Bus.publish('group.add', formData);
     },
 
     added: function(response){
@@ -27,6 +28,13 @@ Class('Group.Form', {
 
     _empty: function() {
         Bus.publish('group.empty');
+    },
+
+    _generateFormData: function()
+    {
+        var data = [];
+        data.group = this.group;
+        return this.generate(data);
     },
 
     subscribe: function() {
