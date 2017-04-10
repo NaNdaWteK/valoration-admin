@@ -7,7 +7,7 @@ feature "Add elements" do
   let(:page) do
     Page::Element.new
   end
-  scenario 'Add one element to track generate a message' do
+  scenario 'one element to track added generate a message' do
     element = 'Paella Valenciana'
 
     page.fill_element(element)

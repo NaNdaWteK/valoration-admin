@@ -13,7 +13,7 @@ Class('Services.Group', {
     },
 
     subscribe: function() {
-        Bus.subscribe('group.add', this.add.bind(this));
+        Bus.subscribe('service.add', this.add.bind(this));
     }
 
 });

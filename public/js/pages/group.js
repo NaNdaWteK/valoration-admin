@@ -3,7 +3,7 @@ Class('Page.Group', {
     Extends: Page,
 
     initialize: function() {
-        instances = [Group.Form, Group.Message, Group.Group, Group.Submit, Services.Group];
+        instances = [Group.Form, Group.Message, Group.Submit, Services.Group, Forms, Elements];
         Page.Group.Super.call(this, instances);
     },
 

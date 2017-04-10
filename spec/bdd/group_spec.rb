@@ -7,7 +7,7 @@ feature "Add groups" do
   let(:page) do
     Page::Group.new
   end
-  scenario 'Add one group of elements generate a message' do
+  scenario 'one group of elements added generate a message' do
     group = 'Dishes'
 
     page.fill_group(group)
