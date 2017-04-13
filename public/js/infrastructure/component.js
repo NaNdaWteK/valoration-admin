@@ -1,7 +1,6 @@
 Class('Component', {
 
     initialize: function(elementId) {
-        this.element = document.getElementById(elementId);
         this.subscribe();
     },
 

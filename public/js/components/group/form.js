@@ -1,46 +1,26 @@
 Class('Group.Form', {
 
-    Extends: Component,
-    Implements: SerializeForm,
+    Extends: Forms,
+
+    Implements: Serializable,
 
     initialize: function() {
-        this.group = '';
-        Group.Form.Super.call(this, 'group-form');
-    },
-
-    change: function(group) {
-        this.group = group;
-    },
-
-    add: function() {
-        var formData = this._generateFormData();
-        Bus.publish('group.add', formData);
+        Group.Form.Super.call(this);
+        this.formData.group = document.getElementById('group');
     },
 
     added: function(response){
-        this._emptyElements();
-        this._show(response);
+        this._empty();
+        Group.Form.Super.prototype._show(response);
     },
 
-    _show: function(response){
-        Bus.publish('group.message',response);
+    _empty: function() {
+        this.formData.group.value = '';
+        Bus.publish('components.empty');
     },
-
-    _emptyElements: function() {
-        Bus.publish('group.empty', 'group.change');
-    },
-
-    _generateFormData: function()
-    {
-        var data = [];
-        data.group = this.group;
-        return this.generate(data);
-    },
-
 
     subscribe: function() {
-        Bus.subscribe('group.change', this.change.bind(this));
-        Bus.subscribe('group.submit', this.add.bind(this));
+        Bus.subscribe('form.submit', Group.Form.Super.prototype.add.bind(this));
         Bus.subscribe('group.added', this.added.bind(this));
     }
 

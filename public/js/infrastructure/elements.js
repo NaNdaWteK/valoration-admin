@@ -1,18 +1,11 @@
 Class('Elements', {
 
-    Extends: Component,
+    Extends:Component,
 
     initialize: function(elementId) {
-        Elements.Super.call(this, elementId);
+        this.element = document.getElementById(elementId);
+        Elements.Super.call(this);
     },
-
-    empty: function(published) {
-        this.element.value = '';
-        Bus.publish(published, '');
-    },
-
-    send: function(published) {
-        Bus.publish(published, this.element.value);
-    }
+    subscribe: function() {}
 
 });

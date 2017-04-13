@@ -1,15 +1,18 @@
 Class('Group.Submit', {
 
-    Extends: Component,
+    Extends: Elements,
 
     initialize: function() {
         Group.Submit.Super.call(this, 'submit');
-        this.element.addEventListener('click', this.submit.bind(this));
+        this._events();
     },
 
     submit: function() {
-        Bus.publish('group.value', 'group.change');
-        Bus.publish('group.submit');
+        Bus.publish('form.submit');
+    },
+
+    _events: function() {
+        this.element.addEventListener('click', this.submit.bind(this));
     },
 
     subscribe: function() {}

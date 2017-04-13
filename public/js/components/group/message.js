@@ -1,6 +1,6 @@
 Class('Group.Message', {
 
-    Extends: Component,
+    Extends: Elements,
 
     initialize: function() {
         Group.Message.Super.call(this, 'message');
@@ -20,8 +20,8 @@ Class('Group.Message', {
     },
 
     subscribe: function() {
-        Bus.subscribe('group.empty', this.empty.bind(this));
-        Bus.subscribe('group.message', this.make.bind(this));
+        Bus.subscribe('components.empty', this.empty.bind(this));
+        Bus.subscribe('components.message', this.make.bind(this));
     }
 
 });
