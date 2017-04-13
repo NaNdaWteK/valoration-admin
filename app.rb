@@ -28,4 +28,10 @@ class App < Sinatra::Base
     result.to_json
   end
 
+  post '/save-components/add' do
+    result = Components::Service.add(request)
+    response = { 'success' => result }
+    response.to_json
+  end
+
 end

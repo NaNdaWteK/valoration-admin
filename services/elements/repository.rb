@@ -1,4 +1,4 @@
-require 'digest'
+require 'digest/md5'
 module Elements
   class Repository
 
@@ -7,9 +7,10 @@ module Elements
     class << self
 
       def store(element)
-        id = self.generate_id(element.to_s)
+        time = Time.now.getutc.to_s
+        id = self.generate_id(time + element.to_s)
         @elements << Element.new(id, element)
-        return self.retrieve(id).to_h
+        return self.retrieve(id).to_hash
       end
 
       def retrieve(id)
@@ -32,7 +33,7 @@ module Elements
           @element = element
         end
 
-        def to_h
+        def to_hash
           {id: @id, element: @element}
         end
       end

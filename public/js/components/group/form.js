@@ -18,7 +18,7 @@ Class('Group.Form', {
     },
 
     added: function(response){
-        this._empty();
+        this._emptyElements();
         this._show(response);
     },
 
@@ -26,7 +26,7 @@ Class('Group.Form', {
         Bus.publish('group.message',response);
     },
 
-    _empty: function() {
+    _emptyElements: function() {
         Bus.publish('group.empty', 'group.change');
     },
 

@@ -1,4 +1,4 @@
-require 'digest'
+require 'digest/md5'
 module Groups
   class Repository
 
@@ -7,9 +7,10 @@ module Groups
     class << self
 
       def store(group)
-        id = self.generate_id(group.to_s)
+        time = Time.now.getutc.to_s
+        id = self.generate_id(time, group.to_s)
         @groups << Group.new(id, group)
-        return self.retrieve(id).to_h
+        return self.retrieve(id).to_hash
       end
 
       def retrieve(id)
@@ -32,7 +33,7 @@ module Groups
           @group = group
         end
 
-        def to_h
+        def to_hash
           {id: @id, group: @group}
         end
       end

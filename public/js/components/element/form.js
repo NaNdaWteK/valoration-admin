@@ -18,7 +18,7 @@ Class('Elements.Form', {
     },
 
     added: function(response){
-        this._empty();
+        this._emptyElements();
         this._show(response);
     },
 
@@ -26,7 +26,7 @@ Class('Elements.Form', {
         Bus.publish('element.message',response);
     },
 
-    _empty: function() {
+    _emptyElements: function() {
         Bus.publish('element.empty', 'element.change');
     },
 
