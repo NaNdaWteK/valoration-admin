@@ -18,6 +18,10 @@ class App < Sinatra::Base
     File.read(File.join('public', 'elements.html'))
   end
 
+  get '/add-components' do
+    File.read(File.join('public', 'components.html'))
+  end
+
   post '/create-group/add' do
     result = Groups::Service.add(request['group'])
     result.to_json

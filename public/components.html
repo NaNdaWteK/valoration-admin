@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <style>
+            @font-face {
+                font-family: 'icomoon';
+                src:  url('fonts/icomoon.eot?qvaokk');
+                src:  url('fonts/icomoon.eot?qvaokk#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qvaokk') format('truetype'),
+                url('fonts/icomoon.woff?qvaokk') format('woff'),
+                url('fonts/icomoon.svg?qvaokk#icomoon') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            [class^="icon-"], [class*=" icon-"] {
+                /* use !important to prevent issues with browser extensions that change fonts */
+                font-family: 'icomoon' !important;
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+
+                /* Better Font Rendering =========== */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .icon-plus:before {
+                content: "\ea0a";
+            }
+        </style>
+    </head>
+    <body>
+        <form action="#" id="component-form" onsubmit="return false;">
+            <div id="message"></div>
+            <div>
+                <input id="component" type="text" maxlength="255" name="component" placeholder="Component to track">
+                <span class="icon-plus"></span>
+            </div>
+            <button id="submit">Add</button>
+        </form>
+        <script src="js/infrastructure/bus.js"></script>
+        <script src="js/infrastructure/class.js"></script>
+        <script src="js/infrastructure/service.js"></script>
+        <script src="js/infrastructure/page.js"></script>
+        <script src="js/infrastructure/component.js"></script>
+        <script src="js/infrastructure/elements.js"></script>
+        <script src="js/infrastructure/forms.js"></script>
+        <script src="js/infrastructure/mixins/formData.js"></script>
+
+        <script src="js/components/element/form.js"></script>
+        <script src="js/components/element/message.js"></script>
+        <script src="js/components/element/submit.js"></script>
+
+        <script src="js/services/element.js"></script>
+
+        <script src="js/pages/element.js"></script>
+
+        <script src="js/element.js"></script>
+    </body>
+</html>
