@@ -1,13 +1,12 @@
-
 require 'spec_helper_bdd'
 require_relative 'test_support/element'
 require_relative '../../app'
 
-feature "Add elements" do
+feature "Elements" do
   let(:page) do
     Page::Element.new
   end
-  scenario 'one element to track added generate a message' do
+  scenario 'added generate a message' do
     element = 'Paella Valenciana'
 
     page.fill_element(element)
