@@ -33,11 +33,13 @@
         </style>
     </head>
     <body>
-        <form action="#" id="component-form" onsubmit="return false;">
+        <form action="#" id="componentForm" onsubmit="return false;">
             <div id="message"></div>
-            <div>
-                <input type="text" maxlength="255" name="component" placeholder="Component to track">
-                <span class="icon-plus"></span>
+            <div id="components">
+                <div>
+                    <input type="text" maxlength="255" name="component" placeholder="Component to track">
+                    <span id="add" class="icon-plus"></span>
+                </div>
             </div>
             <button id="submit">Add</button>
         </form>
@@ -50,14 +52,12 @@
         <script src="js/infrastructure/forms.js"></script>
         <script src="js/infrastructure/mixins/formData.js"></script>
 
-        <script src="js/components/element/form.js"></script>
-        <script src="js/components/element/message.js"></script>
-        <script src="js/components/element/submit.js"></script>
+        <script src="js/components/component/add.js"></script>
 
-        <script src="js/services/element.js"></script>
+        <script src="js/services/component.js"></script>
 
-        <script src="js/pages/element.js"></script>
+        <script src="js/pages/component.js"></script>
 
-        <script src="js/element.js"></script>
+        <script src="js/component.js"></script>
     </body>
 </html>

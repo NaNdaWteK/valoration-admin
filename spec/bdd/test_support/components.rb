@@ -27,8 +27,9 @@ module Page
     private
 
     def validate!
-      page.assert_selector('#component-form')
+      page.assert_selector('#componentForm')
       page.assert_selector('#message', visible: false)
+      page.assert_selector('#components')
       page.assert_selector("input[type='text']")
       page.assert_selector('.icon-plus')
       page.assert_selector('#submit')
