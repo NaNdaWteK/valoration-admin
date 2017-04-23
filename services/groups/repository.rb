@@ -1,4 +1,5 @@
 require 'digest/md5'
+require_relative 'group'
 module Groups
   class Repository
 
@@ -9,7 +10,7 @@ module Groups
       def store(group)
         time = Time.now.getutc.to_s
         id = self.generate_id(time, group.to_s)
-        @groups << Group.new(id, group)
+        @groups << Groups::Group.new(id, group)
         return self.retrieve(id).to_h
       end
 
@@ -23,19 +24,6 @@ module Groups
 
       def generate_id(*identifiers)
         Digest::MD5.hexdigest(identifiers.join)
-      end
-
-      class Group
-        attr_reader :id, :group
-
-        def initialize(id, group)
-          @id = id
-          @group = group
-        end
-
-        def to_h
-          {id: @id, group: @group}
-        end
       end
 
     end
