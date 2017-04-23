@@ -5,17 +5,21 @@ Class('Components.Add', {
     initialize: function() {
         Components.Add.Super.call(this, 'add');
         this.element.addEventListener('click',this.addLine.bind(this));
+        this.container = document.getElementById('components');
     },
 
-    addLine: function() {
-        var container = document.getElementById('components');
-        var line = document.createElement('div');
-        var input = this.generateInput();
+    addLine: function() {    
+        var line = this._generateBlock();
+        var input = this._generateInput();
         line.append(input);
-        container.append(line);
+        this.container.append(line);
     },
 
-    generateInput: function() {
+    _generateBlock: function() {
+        return document.createElement('div');
+    },
+
+    _generateInput: function() {
         var input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('maxlength', '255');
