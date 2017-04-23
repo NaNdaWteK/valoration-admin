@@ -9,18 +9,22 @@ Class('Components.Form', {
         this.formData.element = document.getElementById('element');
     },
 
+    add: function() {
+
+    },
+
     added: function(response){
         this._empty();
-        Elements.Form.Super.prototype._show(response);
+        Components.Form.Super.prototype._show(response);
     },
 
     _empty: function() {
-        this.formData.element.value = '';
+        this.formData.components.value = '';
         Bus.publish('components.empty');
     },
 
     subscribe: function() {
-        Bus.subscribe('component.submit', Components.Form.Super.prototype.add.bind(this));
+        Bus.subscribe('component.submit', this.add.bind(this));
         Bus.subscribe('element.added', this.added.bind(this));
     }
 

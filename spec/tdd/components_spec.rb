@@ -13,7 +13,7 @@ describe Components::Service do
 
   end
   def simulated_request
-    request = { 'components' => ['Salsa brava', 'Patatas fritas'], 'element' => { 'id' => 1, 'title' => 'Patatas Bravas' } }
+    request = { 'components' => ['Salsa brava', 'Patatas fritas'], 'element_id' => 1 }
     request
   end
 end

@@ -12,14 +12,14 @@ Class('Components.Message', {
 
     make: function(response) {
         this.empty();
-        var message = this._createMessage();
+        var message = this._createMessage(response);
         this.element.append(message);
     },
 
-    _createMessage: function() {
+    _createMessage: function(response) {
         var message = document.createElement('p');
-        message.className = 'element-message--added';
-        var text = 'El elemento ' + response.element + " ha sido añadido con éxito.";
+        message.className = 'component-message--added';
+        var text = 'Los componentes han sido añadidos con éxito.';
         message.textContent = text;
         return message;
     },

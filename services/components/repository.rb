@@ -8,10 +8,10 @@ module Components
 
       def store(data)
         response = true
-        element = data['element']
-        
+        element_id = data['element_id']
+
         data['components'].each do |component|
-          id = save(component, element)
+          id = save(component, element_id)
           if !retrieve(id)
             response = false
           end
@@ -34,11 +34,10 @@ module Components
 
       private
 
-      def save(component, element)
+      def save(component, element_id)
         time = Time.now.getutc.to_s
         id = self.generate_id(time, component.to_s)
         name = component
-        element_id = element['id']
 
         @components << Component.new(id, name, element_id)
 
