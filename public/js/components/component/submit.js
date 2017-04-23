@@ -8,7 +8,7 @@ Class('Components.Submit', {
     },
 
     submit: function() {
-        Bus.publish('form.submit');
+        Bus.publish('component.submit');
     },
 
     _events: function() {

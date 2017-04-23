@@ -20,7 +20,7 @@ Class('Components.Form', {
     },
 
     subscribe: function() {
-        Bus.subscribe('form.submit', Elements.Form.Super.prototype.add.bind(this));
+        Bus.subscribe('component.submit', Elements.Form.Super.prototype.add.bind(this));
         Bus.subscribe('element.added', this.added.bind(this));
     }
 

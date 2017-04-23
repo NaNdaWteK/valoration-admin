@@ -8,7 +8,7 @@ Class('Elements.Submit', {
     },
 
     submit: function() {
-        Bus.publish('form.submit');
+        Bus.publish('element.submit');
     },
 
     _events: function() {

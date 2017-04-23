@@ -20,7 +20,7 @@ Class('Group.Form', {
     },
 
     subscribe: function() {
-        Bus.subscribe('form.submit', Group.Form.Super.prototype.add.bind(this));
+        Bus.subscribe('group.submit', Group.Form.Super.prototype.add.bind(this));
         Bus.subscribe('group.added', this.added.bind(this));
     }
 
