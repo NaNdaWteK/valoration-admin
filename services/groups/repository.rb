@@ -9,9 +9,9 @@ module Groups
 
       def store(group)
         time = Time.now.getutc.to_s
-        id = self.generate_id(time, group.to_s)
+        id = generate_id(time, group.to_s)
         @groups << Groups::Group.new(id, group)
-        return self.retrieve(id).to_h
+        return retrieve(id).to_h
       end
 
       def retrieve(id)

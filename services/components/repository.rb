@@ -37,7 +37,7 @@ module Components
 
       def save(component, element_id)
         time = Time.now.getutc.to_s
-        id = self.generate_id(time, component.to_s)
+        id = generate_id(time, component.to_s)
         name = component
 
         @components << Components::Component.new(id, name, element_id)

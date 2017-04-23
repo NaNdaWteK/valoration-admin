@@ -9,9 +9,9 @@ module Elements
 
       def store(element)
         time = Time.now.getutc.to_s
-        id = self.generate_id(time + element.to_s)
+        id = generate_id(time + element.to_s)
         @elements << Elements::Element.new(id, element)
-        return self.retrieve(id).to_h
+        return retrieve(id).to_h
       end
 
       def retrieve(id)
