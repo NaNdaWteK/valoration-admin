@@ -7,12 +7,12 @@ Class('Group.Submit', {
         this._events();
     },
 
-    submit: function() {
+    _submit: function() {
         Bus.publish('group.submit');
     },
 
     _events: function() {
-        this.element.addEventListener('click', this.submit.bind(this));
+        this.element.addEventListener('click', this._submit.bind(this));
     },
 
     subscribe: function() {}

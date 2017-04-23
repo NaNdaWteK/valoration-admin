@@ -2,8 +2,6 @@ Class('Components.Form', {
 
     Extends: Forms,
 
-    Implements: Serializable,
-
     initialize: function() {
         Components.Form.Super.call(this);
         this.formData.element = document.getElementById('element');
