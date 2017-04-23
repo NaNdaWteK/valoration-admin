@@ -1,9 +1,6 @@
 Class('Page', {
 
     initialize: function(components) {
-        components.forEach(function(componentObject) {
-            new componentObject();
-        });
         this.publish();
         this.subscribe();
     },

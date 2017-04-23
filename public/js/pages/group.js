@@ -3,8 +3,25 @@ Class('Page.Group', {
     Extends: Page,
 
     initialize: function() {
-        instances = [Group.Form, Group.Message, Group.Submit, Services.Group, Forms, Elements];
+        this._instaceComponents();
+        this._instaceServices();
+        this._instaceInfrastructure();
         Page.Group.Super.call(this, instances);
+    },
+
+    _instaceComponents: function() {
+        new Group.Form() ;
+        new Group.Message() ;
+        new Group.Submit();
+    },
+
+    _instaceServices: function() {
+        new Services.Group();
+    },
+
+    _instaceInfrastructure: function() {
+        new Forms();
+        new Elements();
     },
 
     publish: function() {},
