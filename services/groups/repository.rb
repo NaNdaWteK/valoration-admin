@@ -10,7 +10,7 @@ module Groups
         time = Time.now.getutc.to_s
         id = self.generate_id(time, group.to_s)
         @groups << Group.new(id, group)
-        return self.retrieve(id).to_hash
+        return self.retrieve(id).to_h
       end
 
       def retrieve(id)
@@ -33,7 +33,7 @@ module Groups
           @group = group
         end
 
-        def to_hash
+        def to_h
           {id: @id, group: @group}
         end
       end

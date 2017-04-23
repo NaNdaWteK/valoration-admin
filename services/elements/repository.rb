@@ -10,7 +10,7 @@ module Elements
         time = Time.now.getutc.to_s
         id = self.generate_id(time + element.to_s)
         @elements << Element.new(id, element)
-        return self.retrieve(id).to_hash
+        return self.retrieve(id).to_h
       end
 
       def retrieve(id)
@@ -33,7 +33,7 @@ module Elements
           @element = element
         end
 
-        def to_hash
+        def to_h
           {id: @id, element: @element}
         end
       end
