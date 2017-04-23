@@ -1,4 +1,5 @@
 require 'digest/md5'
+require_relative 'element'
 module Elements
   class Repository
 
@@ -9,7 +10,7 @@ module Elements
       def store(element)
         time = Time.now.getutc.to_s
         id = self.generate_id(time + element.to_s)
-        @elements << Element.new(id, element)
+        @elements << Elements::Element.new(id, element)
         return self.retrieve(id).to_h
       end
 
@@ -23,19 +24,6 @@ module Elements
 
       def generate_id(*identifiers)
         Digest::MD5.hexdigest(identifiers.join)
-      end
-
-      class Element
-        attr_reader :id, :element
-
-        def initialize(id, element)
-          @id = id
-          @element = element
-        end
-
-        def to_h
-          {id: @id, element: @element}
-        end
       end
 
     end
