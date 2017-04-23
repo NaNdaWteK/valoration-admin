@@ -5,7 +5,7 @@ Class('Components.Form', {
     Implements: Serializable,
 
     initialize: function() {
-        Elements.Form.Super.call(this);
+        Components.Form.Super.call(this);
         this.formData.element = document.getElementById('element');
     },
 
@@ -20,7 +20,7 @@ Class('Components.Form', {
     },
 
     subscribe: function() {
-        Bus.subscribe('component.submit', Elements.Form.Super.prototype.add.bind(this));
+        Bus.subscribe('component.submit', Components.Form.Super.prototype.add.bind(this));
         Bus.subscribe('element.added', this.added.bind(this));
     }
 
