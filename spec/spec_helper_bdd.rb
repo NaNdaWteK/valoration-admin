@@ -6,15 +6,6 @@ require_relative '../environment_configuration'
 
 SINATRA_PORT = retrieve_port
 
-def retrieve_mode
-  begin
-    consensus_environment = ENV.fetch('CONSENSUS_MODE')
-  rescue
-    consensus_environment = nil
-  end
-  return consensus_environment
-end
-
 def host_ip
   routes = `/sbin/ip route`
   routes.match(/[\d\.]+/)
@@ -24,7 +15,7 @@ def use_selenium
   Capybara.register_driver :chrome do |app|
     Capybara::Selenium::Driver.new(app, {
       browser: :remote,
-      url: 'http://chrome-browser:4444/wd/hub',
+      url: 'http://valoration-chrome-browser:4444/wd/hub',
       desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome
     })
   end

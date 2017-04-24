@@ -3,22 +3,33 @@ require 'rspec/core/rake_task'
 
 SINATRA_PORT = retrieve_port
 
+TRAVIS = retrieve_travis
+
 task :default => :start
 
 task :start do
-  sh "rerun --background -- rackup --port #{SINATRA_PORT} -o 0.0.0.0"
+  if (TRAVIS == false)
+    sh "rerun --background -- rackup --port #{SINATRA_PORT} -o 0.0.0.0"
+  end
+  if (TRAVIS == true)
+    File.delete('travis.ci')
+    sh "rerun --background -- rackup --port #{SINATRA_PORT} -o 0.0.0.0 &"
+    sh 'rspec spec/integration'
+    sh 'rspec spec/tdd'
+    sh 'rspec spec/bdd'
+  end
 end
 
 task :tdd do
   sh 'rspec spec/tdd'
 end
 
-task :integration do
-  sh 'rspec spec/integration'
-end
-
 task :bdd do
   sh 'rspec spec/bdd'
+end
+
+task :integration do
+  sh 'rspec spec/integration'
 end
 
 task :test => [:tdd, :bdd, :integration] do
