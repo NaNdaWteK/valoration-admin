@@ -1,5 +1,5 @@
-require 'digest/md5'
 require_relative 'component'
+require_relative '../common/ids_generator'
 module Components
   class Repository
 
@@ -22,27 +22,26 @@ module Components
       end
 
       def retrieve(id)
-        @components.find { |component| component.id == id }
+        return @components.find { |component| component.id == id }
       end
 
       def empty
         @components = []
       end
 
-      def generate_id(*identifiers)
-        Digest::MD5.hexdigest(identifiers.join)
-      end
-
       private
 
       def save(component, element_id)
-        time = Time.now.getutc.to_s
-        id = generate_id(time, component.to_s)
+        id = generate_md5_id(component)
         name = component
 
         @components << Components::Component.new(id, name, element_id)
 
-        id
+        return id
+      end
+
+      def generate_md5_id(argument)
+        return Identifiers::Generator.maker(:md5).generate(argument)
       end
 
     end

@@ -1,5 +1,6 @@
-require 'digest/md5'
 require_relative 'element'
+require_relative '../common/ids_generator'
+
 module Elements
   class Repository
 
@@ -8,8 +9,7 @@ module Elements
     class << self
 
       def store(element)
-        time = Time.now.getutc.to_s
-        id = generate_id(time + element.to_s)
+        id = generate_md5_id(element)
         @elements << Elements::Element.new(id, element)
         return retrieve(id).to_h
       end
@@ -22,8 +22,10 @@ module Elements
         @elements = []
       end
 
-      def generate_id(*identifiers)
-        Digest::MD5.hexdigest(identifiers.join)
+      private
+
+      def generate_md5_id(argument)
+        return Identifiers::Generator.maker(:md5).generate(argument)
       end
 
     end
