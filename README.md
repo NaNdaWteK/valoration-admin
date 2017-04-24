@@ -29,3 +29,6 @@ sudo gem install capybara
 sudo gem install chromedriver-helper
 sudo gem install nokogiri
 ```
+
+### Status
+[![Build Status](https://travis-ci.org/NaNdaWteK/valoration_app.svg?branch=master)](https://travis-ci.org/NaNdaWteK/valoration_app)
