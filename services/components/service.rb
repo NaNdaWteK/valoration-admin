@@ -5,6 +5,7 @@ module Components
     class << self
       def add(components)
         response = Repository.store(components)
+        
         return response
       end
       def empty

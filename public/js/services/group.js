@@ -3,11 +3,11 @@ Class('Services.Group', {
     Extends: Service,
 
     initialize: function() {
-        Services.Group.Super.call(this, '../../create-group');
+        Services.Group.Super.call(this, '../../add-group');
     },
 
     add: function(group) {
-        this.doRequest(this.baseUrl + '/add', group, function(response) {
+        this.doRequest(this.baseUrl + '/save', group, function(response) {
             Bus.publish('group.added', response);
         });
     },

@@ -10,7 +10,6 @@ feature "Add components" do
     component = 'Patatas fritas'
 
     page.fill_component(component, 0)
-    sleep 2
     page.submit_form()
 
     expect( true ).to be(true)

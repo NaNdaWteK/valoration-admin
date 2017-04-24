@@ -13,11 +13,15 @@ task :tdd do
   sh 'rspec spec/tdd'
 end
 
+task :integration do
+  sh 'rspec spec/integration'
+end
+
 task :bdd do
   sh 'rspec spec/bdd'
 end
 
-task :test => [:tdd, :bdd] do
+task :test => [:tdd, :bdd, :integration] do
 end
 
 task :tag, [:tag] do |t, arg|

@@ -10,7 +10,9 @@ module Elements
 
       def store(element)
         id = generate_md5_id(element)
+
         @elements << Elements::Element.new(id, element)
+        
         return retrieve(id).to_h
       end
 

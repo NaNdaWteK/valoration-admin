@@ -10,7 +10,9 @@ module Groups
 
       def store(group)
         id = generate_md5_id(group)
+
         @groups << Groups::Group.new(id, group)
+        
         return retrieve(id).to_h
       end
 

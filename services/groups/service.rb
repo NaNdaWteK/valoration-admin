@@ -5,6 +5,7 @@ module Groups
     class << self
       def add(group)
         id = Repository.store(group)
+        
         return id
       end
     end

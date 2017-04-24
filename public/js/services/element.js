@@ -3,11 +3,11 @@ Class('Services.Element', {
     Extends: Service,
 
     initialize: function() {
-        Services.Element.Super.call(this, '../../create-element');
+        Services.Element.Super.call(this, '../../add-element');
     },
 
     add: function(element) {
-        this.doRequest(this.baseUrl + '/add', element, function(response) {
+        this.doRequest(this.baseUrl + '/save', element, function(response) {
             Bus.publish('element.added', response);
         });
     },

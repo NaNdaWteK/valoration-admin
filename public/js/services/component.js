@@ -7,7 +7,7 @@ Class('Services.Element', {
     },
 
     add: function(components) {
-        this.doRequest(this.baseUrl, components, function(response) {
+        this.doRequest(this.baseUrl + '/save', components, function(response) {
             Bus.publish('components.added', response);
         });
     },
