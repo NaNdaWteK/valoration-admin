@@ -4,11 +4,11 @@ Class('Components.Add', {
 
     initialize: function() {
         Components.Add.Super.call(this, 'add');
-        this.element.addEventListener('click',this.addLine.bind(this));
         this.container = document.getElementById('components');
+        this._events();
     },
 
-    addLine: function() {    
+    _addLine: function() {
         var line = this._generateBlock();
         var input = this._generateInput();
         line.append(input);
@@ -26,6 +26,10 @@ Class('Components.Add', {
         input.setAttribute('name', 'component');
         input.setAttribute('placeholder', 'Component to track');
         return input;
+    },
+    
+    _events: function() {
+        this.element.addEventListener('click',this._addLine.bind(this));
     },
 
     subscribe: function() {

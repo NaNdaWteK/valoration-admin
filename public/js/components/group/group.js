@@ -2,8 +2,6 @@ Class('Group.Form', {
 
     Extends: Forms,
 
-    Implements: Serializable,
-
     initialize: function() {
         Group.Form.Super.call(this);
         this.formData.group = document.getElementById('group');
