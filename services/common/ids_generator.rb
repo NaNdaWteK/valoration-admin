@@ -18,14 +18,14 @@ module Identifiers
     end
 
   end
-  class Md5ID < Generator
+  class Md5ID
     def generate(identifier)
       identifiers = Time.now.getutc.to_s + identifier.to_s
 
       return Digest::MD5.hexdigest(identifiers)
     end
   end
-  class JwtID < Generator
+  class JwtID
     def generate(identifier)
     end
   end
