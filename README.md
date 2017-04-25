@@ -7,7 +7,7 @@
 
 `sudo apt-get install ruby ruby-dev ruby-rack`
 
-* Visit nokogiri page ( http://www.nokogiri.org/tutorials/installing_nokogiri.html ) and install dependencies, in debian/ubuntu:
+* Visit nokogiri page [nokogiri](http://www.nokogiri.org/tutorials/installing_nokogiri.html) and install dependencies, in debian/ubuntu:
 
 ```
 
@@ -34,15 +34,34 @@ sudo gem install rack-test
 
 ## DOCKERIZED ENVIRONMENT
 
+#### A. DOCKER INSTALATION:
+
+1.- You must install Docker following the web instructions:
+
+Link: [docker](https://www.docker.com)
+
+2.- You must follow the steps in the docker web to be familiar with.
+
+3.- Also follow the instructions 'Post-installation steps for Linux'.
+
+4.- It's important to clean your docker images and containers when you are goin to start with docker.
+
+    Install docker-compose.
+
+Link: [docker install](https://docs.docker.com/compose/install/)
+
+
+#### B. RUN DOCKER
+
 1.- Download git:
 
-`git clone https://github.com/devscola/consensus`
+`git clone https://github.com/NaNdaWteK/valoration_app.git`
 
 2.- Start the docker-compose service to be able to run the test:
 
 ```
 
-docker build -t consensus .
+docker build -t valoration .
 docker-compose build
 ```
 
