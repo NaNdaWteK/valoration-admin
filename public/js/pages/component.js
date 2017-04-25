@@ -6,7 +6,7 @@ Class('Page.Component', {
         this._instaceComponents();
         this._instaceServices();
         this._instaceInfrastructure();
-        Page.Component.Super.call(this, instances);
+        Page.Component.Super.call(this);
     },
 
     _instaceComponents: function() {
