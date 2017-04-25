@@ -8,7 +8,7 @@ Class('Services.Element', {
 
     add: function(element) {
         this.doRequest(this.baseUrl + '/save', element, function(response) {
-            Bus.publish('element.added', response);
+            Bus.publish('components.form.added', response);
         });
     },
 

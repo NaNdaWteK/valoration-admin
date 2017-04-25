@@ -2,13 +2,18 @@ Class('Forms', {
 
     Extends: Component,
 
-    initialize: function() {
+    initialize: function(objectId) {
+        Forms.Super.call(this, objectId);
         this.formData = {};
-        Elements.Super.call(this);
     },
 
     add: function() {
         Bus.publish('service.add', this._generateFormData(this.formData));
+    },
+
+    added: function(response){
+        this._empty();
+        this._show(response);
     },
 
     _show: function(response) {
@@ -23,6 +28,11 @@ Class('Forms', {
             }
         }
         return formData;
+    },
+
+    _empty: function() {
+        this.formData.component.value = '';
+        Bus.publish('components.empty');
     },
 
     subscribe: function() {}

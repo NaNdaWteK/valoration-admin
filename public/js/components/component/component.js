@@ -1,9 +1,9 @@
-Class('Components.Form', {
+Class('Component.Form', {
 
-    Extends: Forms,
+    Extends: Component,
 
     initialize: function() {
-        Components.Form.Super.call(this);
+        Component.Form.Super.call(this);
         this.formData.element = document.getElementById('element');
     },
 
@@ -13,7 +13,11 @@ Class('Components.Form', {
 
     added: function(response){
         this._empty();
-        Components.Form.Super.prototype._show(response);
+        this._show(response);
+    },
+
+    _show: function(response) {
+
     },
 
     _empty: function() {
@@ -23,7 +27,7 @@ Class('Components.Form', {
 
     subscribe: function() {
         Bus.subscribe('component.submit', this.add.bind(this));
-        Bus.subscribe('element.added', this.added.bind(this));
+        Bus.subscribe('component.added', this.added.bind(this));
     }
 
 });

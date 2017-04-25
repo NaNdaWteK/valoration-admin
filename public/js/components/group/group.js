@@ -3,23 +3,13 @@ Class('Group.Form', {
     Extends: Forms,
 
     initialize: function() {
-        Group.Form.Super.call(this);
-        this.formData.group = document.getElementById('group');
-    },
-
-    added: function(response){
-        this._empty();
-        Group.Form.Super.prototype._show(response);
-    },
-
-    _empty: function() {
-        this.formData.group.value = '';
-        Bus.publish('components.empty');
+        Group.Form.Super.call(this, 'group');
+        this.formData.component = document.getElementById('group');
     },
 
     subscribe: function() {
-        Bus.subscribe('group.submit', Group.Form.Super.prototype.add.bind(this));
-        Bus.subscribe('group.added', this.added.bind(this));
+        Bus.subscribe('components.form.submit', Group.Form.Super.prototype.add.bind(this));
+        Bus.subscribe('components.form.added', Group.Form.Super.prototype.added.bind(this));
     }
 
 });

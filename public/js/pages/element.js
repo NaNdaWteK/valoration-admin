@@ -6,7 +6,7 @@ Class('Page.Element', {
         this._instaceComponents();
         this._instaceServices();
         this._instaceInfrastructure();
-        Page.Element.Super.call(this, instances);
+        Page.Element.Super.call(this);
     },
 
     _instaceComponents: function() {
@@ -23,7 +23,7 @@ Class('Page.Element', {
         new Forms();
         new Elements();
     },
-    
+
     publish: function() {},
 
     subscribe: function() {}

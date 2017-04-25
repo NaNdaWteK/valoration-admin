@@ -6,7 +6,7 @@ Class('Page.Group', {
         this._instaceComponents();
         this._instaceServices();
         this._instaceInfrastructure();
-        Page.Group.Super.call(this, instances);
+        Page.Group.Super.call(this);
     },
 
     _instaceComponents: function() {
