@@ -6,10 +6,8 @@ module Identifiers
       def maker(type)
 
         case type
-        when :md5
-          Md5ID.new
-        when :jwt
-          JwtID.new
+        when :md5 then Md5ID.new
+        when :jwt then JwtID.new
         else
           raise "Bad id generator type: #{type}"
         end
