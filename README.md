@@ -3,7 +3,11 @@
 
 ## NOT DOCKERIZED ENVIRONMENT
 
+***View Gemfile to be ensure that you are installing the correct versions, if you don´t want problems, use our dockerized enviroment***
+
 * Install Ruby, Ruby-dev and Ruby-rack:
+
+***It's important to has at least ruby 2.4.0***
 
 `sudo apt-get install ruby ruby-dev ruby-rack`
 
@@ -30,6 +34,7 @@ sudo gem install capybara
 sudo gem install chromedriver-helper
 sudo gem install nokogiri
 sudo gem install rack-test
+sudo gem install jwt
 ```
 
 ## DOCKERIZED ENVIRONMENT
