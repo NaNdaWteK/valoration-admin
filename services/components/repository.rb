@@ -9,17 +9,14 @@ module Components
     class << self
 
       def store(data)
-        response = true
+        id = ''
         element_id = data['element_id']
 
         data['components'].each do |component|
           id = save(component, element_id)
-          if !retrieve(id)
-            response = false
-          end
         end
 
-        return response
+        return retrieve(id).to_h
       end
 
       def retrieve(id)

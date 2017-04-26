@@ -5,10 +5,11 @@ describe 'Components service' do
 
   it 'stores any number of components' do
     request_data = simulated_request
+    RELATED_ID = 1
 
-    success = Components::Service.add(request_data)
+    response = Components::Service.add(request_data)
 
-    expect(success).to be true
+    expect(response[:element_id]).to be RELATED_ID
 
   end
 
