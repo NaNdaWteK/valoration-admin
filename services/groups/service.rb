@@ -3,11 +3,11 @@ require_relative 'repository'
 module Groups
   class Service
     class << self
-      
-      def add(group)
-        id = Repository.store(group)
 
-        return id
+      def add(group)
+        group = Repository.store(group)
+
+        return group
       end
 
       def empty

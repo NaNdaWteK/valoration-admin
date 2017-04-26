@@ -5,15 +5,15 @@ module Elements
     class << self
 
       def add(element)
-        id = Repository.store(element)
+        element = Repository.store(element)
 
-        return id
+        return element
       end
 
       def empty
         Repository.empty
       end
-      
+
     end
   end
 end
