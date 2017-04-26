@@ -30,7 +30,7 @@ module Components
       private
 
       def save(component, element_id)
-        id = generate_md5_id(component)
+        id = generate_jwt_id(component)
         name = component
 
         @components << Components::Component.new(id, name, element_id)
@@ -40,6 +40,10 @@ module Components
 
       def generate_md5_id(argument)
         return Identifiers::Generator.maker(:md5).generate(argument)
+      end
+
+      def generate_jwt_id(argument)
+        return Identifiers::Generator.maker(:jwt).generate(argument)
       end
 
     end

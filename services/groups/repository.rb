@@ -9,10 +9,10 @@ module Groups
     class << self
 
       def store(group)
-        id = generate_md5_id(group)
+        id = generate_jwt_id(group)
 
         @groups << Groups::Group.new(id, group)
-        
+
         return retrieve(id).to_h
       end
 
@@ -28,6 +28,10 @@ module Groups
 
       def generate_md5_id(argument)
         return Identifiers::Generator.maker(:md5).generate(argument)
+      end
+
+      def generate_jwt_id(argument)
+        return Identifiers::Generator.maker(:jwt).generate(argument)
       end
 
     end
