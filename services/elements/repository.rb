@@ -27,7 +27,7 @@ module Elements
       private
 
       def generate_md5_id(argument)
-        return Identifiers::Generator.maker(:md5).generate(argument)
+        return Identifiers::Generator.maker(:jwt).generate(argument)
       end
 
     end

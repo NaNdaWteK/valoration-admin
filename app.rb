@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'json'
 require_relative 'services/groups/routes'
 require_relative 'services/elements/routes'
 require_relative 'services/components/routes'
