@@ -1,5 +1,5 @@
 require_relative 'group'
-require_relative '../common/ids_generator'
+require_relative '../common/tokens_factory.rb'
 
 module Groups
   class Repository

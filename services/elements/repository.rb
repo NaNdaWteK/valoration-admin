@@ -1,5 +1,5 @@
 require_relative 'element'
-require_relative '../common/ids_generator'
+require_relative '../common/tokens_factory.rb'
 
 module Elements
   class Repository
@@ -12,7 +12,7 @@ module Elements
         id = generate_md5_id(element)
 
         @elements << Elements::Element.new(id, element)
-        
+
         return retrieve(id).to_h
       end
 

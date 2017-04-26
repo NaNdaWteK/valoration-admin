@@ -1,19 +1,13 @@
-
 require 'spec_helper_bdd'
-require_relative 'test_support/group'
-require_relative '../../app'
+require_relative 'test_support/groups/group'
+require_relative 'test_support/groups/fixture'
 
-feature "Add groups" do
-  let(:page) do
-    Page::Group.new
-  end
-  scenario 'one group of elements added generate a message' do
-    group = 'Dishes'
+feature "New group" do
+  scenario 'added generate a message' do
 
-    page.fill_group(group)
-    page.submit_form()
+    current = Groups::Fixture.add_group
 
-    expect( page.check_group?(group) ).to be(true)
-    expect(page.group_added_message?).to be(true)
+    expect(current.check_group?(Groups::Fixture::GROUP_NAME)).to be(true)
+    expect(current.group_added_message?).to be(true)
   end
 end

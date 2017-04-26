@@ -1,5 +1,6 @@
 require_relative 'component'
-require_relative '../common/ids_generator'
+require_relative '../common/tokens_factory.rb'
+
 module Components
   class Repository
 

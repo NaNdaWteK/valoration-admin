@@ -10,4 +10,8 @@ class App < Sinatra::Base
     result.to_json
   end
 
+  get '/groups/empty' do
+    Groups::Service.empty
+  end
+
 end
