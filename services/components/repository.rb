@@ -1,6 +1,3 @@
-require_relative 'component'
-require_relative '../common/tokens_factory.rb'
-
 module Components
   class Repository
 
@@ -9,14 +6,15 @@ module Components
     class << self
 
       def store(data)
-        id = ''
         element_id = data['element_id']
+        components = []
 
         data['components'].each do |component|
-          id = save(component, element_id)
+          component = save(component, element_id)
+          components.push(component.serialize)
         end
 
-        return retrieve(id).to_h
+        return components
       end
 
       def retrieve(id)
@@ -32,10 +30,11 @@ module Components
       def save(component, element_id)
         id = generate_jwt_id(component)
         name = component
+        component = Components::Component.new(id, name, element_id)
 
-        @components << Components::Component.new(id, name, element_id)
+        @components.push(component)
 
-        return id
+        return component
       end
 
       def generate_md5_id(argument)
