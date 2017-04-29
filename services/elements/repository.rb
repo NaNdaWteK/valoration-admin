@@ -1,6 +1,3 @@
-require_relative 'element'
-require_relative '../common/tokens_factory.rb'
-
 module Elements
   class Repository
 
@@ -10,10 +7,10 @@ module Elements
 
       def store(element)
         id = generate_jwt_id(element)
+        element = Elements::Element.new(id, element)
+        @elements.push(element)
 
-        @elements << Elements::Element.new(id, element)
-
-        return retrieve(id).to_h
+        return element
       end
 
       def retrieve(id)

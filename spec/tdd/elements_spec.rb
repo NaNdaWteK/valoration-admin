@@ -8,7 +8,7 @@ describe 'Elements service' do
 
     response = Elements::Service.add(ELEMENT_NAME)
 
-    expect(response[:element]).to be ELEMENT_NAME
+    expect(response['element']).to be ELEMENT_NAME
 
   end
 
