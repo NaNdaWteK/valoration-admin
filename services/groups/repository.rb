@@ -1,6 +1,3 @@
-require_relative 'group'
-require_relative '../common/tokens_factory.rb'
-
 module Groups
   class Repository
 
@@ -10,10 +7,11 @@ module Groups
 
       def store(group)
         id = generate_jwt_id(group)
+        group = Groups::Group.new(id, group)
 
-        @groups << Groups::Group.new(id, group)
+        @groups.push(group)
 
-        return retrieve(id).to_h
+        return group
       end
 
       def retrieve(id)

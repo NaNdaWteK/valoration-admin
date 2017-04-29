@@ -8,7 +8,7 @@ describe 'Groups service' do
 
     response = Groups::Service.add(GROUP_NAME)
 
-    expect(response[:group]).to be GROUP_NAME
+    expect(response['group']).to be GROUP_NAME
 
   end
 
