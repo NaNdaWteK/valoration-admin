@@ -16,7 +16,7 @@ services:
   selenium:
     image: selenium/standalone-chrome
     ports:
-        - "4444:4444"
+        - "5555:5555"
     container_name: valoration-chrome-browser
     logging:
       driver: none

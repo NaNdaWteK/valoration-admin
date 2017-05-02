@@ -3,7 +3,7 @@ require_relative '../../services/elements/service'
 
 describe 'Elements service' do
 
-  it 'add a new element' do
+  it 'add new element' do
     ELEMENT_NAME = 'Paella Valenciana'
 
     response = Elements::Service.add(ELEMENT_NAME)

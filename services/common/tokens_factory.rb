@@ -1,6 +1,3 @@
-require 'digest/md5'
-require 'jwt'
-
 module Identifiers
   class Generator
 
