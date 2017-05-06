@@ -2,7 +2,7 @@ require 'spec_helper_bdd'
 require_relative 'test_support/groups/group'
 require_relative 'test_support/groups/fixture'
 
-feature "New group" do
+feature "Group" do
   scenario 'added generate a message' do
 
     current = Groups::Fixture.add_group

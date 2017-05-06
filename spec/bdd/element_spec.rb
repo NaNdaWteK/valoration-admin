@@ -2,7 +2,7 @@ require 'spec_helper_bdd'
 require_relative 'test_support/elements/element'
 require_relative 'test_support/elements/fixture'
 
-feature "New elements" do
+feature "Elements" do
   scenario 'added generate a message' do
 
     current = Elements::Fixture.add_element
