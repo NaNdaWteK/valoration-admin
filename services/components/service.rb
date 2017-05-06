@@ -10,7 +10,7 @@ module Components
       def add(components_data)
         components = to_components(components_data)
 
-        response = Repository.store(components)
+        response = Components::Repository.store(components)
 
         response = serialized(response)
 
@@ -20,13 +20,6 @@ module Components
       def to_components(data)
         element_id = data['element_id']
         items = JSON.parse(data['components'])
-
-        components = to_array(items, element_id)
-
-        return components
-      end
-
-      def to_array(items, element_id)
         components = Array.new
 
         items.each do |item|
@@ -47,7 +40,7 @@ module Components
       end
 
       def empty
-        Repository.empty
+        Components::Repository.empty
       end
     end
   end
