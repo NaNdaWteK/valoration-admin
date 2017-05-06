@@ -12,7 +12,7 @@ module Components
         response = Repository.store(components)
 
         response = serialized(response)
-
+        
         return response
       end
 
