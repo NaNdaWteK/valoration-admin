@@ -9,7 +9,7 @@ describe 'Components' do
     App.new
   end
 
-  it 'added correctly' do
+  it 'added correctly', :wip do
     RELATED_ID = '1'
     SECOND_COMPONENT = 'Patatas fritas'
     request = simulated_request
@@ -23,7 +23,7 @@ describe 'Components' do
   end
 
   def simulated_request
-    request = { 'components' => ['Salsa brava', 'Patatas fritas'], 'element_id' => 1 }
+    request = { 'components' => "[\"Salsa brava\", \"Patatas fritas\"]", 'element_id' => 1 }
     return request
   end
 end

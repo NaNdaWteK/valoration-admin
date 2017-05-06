@@ -4,12 +4,12 @@ Class('Elements.Form', {
 
     initialize: function() {
         Elements.Form.Super.call(this, 'element');
-        this.formData.component = document.getElementById('element');
+        this.formData.element = document.getElementById('element');
     },
 
     subscribe: function() {
-        Bus.subscribe('components.form.submit', Elements.Form.Super.prototype.add.bind(this));
-        Bus.subscribe('components.form.added', Elements.Form.Super.prototype.added.bind(this));
+        Bus.subscribe('form.submit', Elements.Form.Super.prototype.add.bind(this));
+        Bus.subscribe('form.added', Elements.Form.Super.prototype.added.bind(this));
     }
 
 });

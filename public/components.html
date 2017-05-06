@@ -34,10 +34,11 @@
     </head>
     <body>
         <form action="#" id="componentForm" onsubmit="return false;">
+            <input id="relatedId" type="hidden" name="element_id" value="1">
             <div id="message"></div>
             <div id="components">
                 <div>
-                    <input type="text" maxlength="255" name="component" placeholder="Component to track">
+                    <input type="text" maxlength="255" name="component[]" placeholder="Component to track">
                     <span id="add" class="icon-plus"></span>
                 </div>
             </div>
@@ -54,6 +55,9 @@
         <script src="js/infrastructure/forms.js"></script>
 
         <script src="js/components/component/add.js"></script>
+        <script src="js/components/component/component.js"></script>
+        <script src="js/components/component/message.js"></script>
+        <script src="js/components/component/submit.js"></script>
 
         <script src="js/services/component.js"></script>
 

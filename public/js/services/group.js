@@ -8,7 +8,7 @@ Class('Services.Group', {
 
     add: function(group) {
         this.doRequest(this.baseUrl + '/save', group, function(response) {
-            Bus.publish('components.form.added', response);
+            Bus.publish('form.added', response);
         });
     },
 

@@ -13,7 +13,7 @@ describe 'Element' do
   it 'added generate a message' do
     ELEMENT_NAME = 'Paella Valenciana'
     request = {
-      'component' => ELEMENT_NAME
+      'element' => ELEMENT_NAME
     }
 
     post '/add-element/save', request

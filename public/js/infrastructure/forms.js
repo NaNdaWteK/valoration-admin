@@ -8,7 +8,7 @@ Class('Forms', {
     },
 
     add: function() {
-        Bus.publish('service.add', this._generateFormData(this.formData));
+        Bus.publish('service.add', this._generateFormData());
     },
 
     added: function(response){
@@ -17,22 +17,22 @@ Class('Forms', {
     },
 
     _show: function(response) {
-        Bus.publish('components.message',response);
+        Bus.publish('form.message', response);
     },
 
-    _generateFormData: function(data) {
-        var formData = new FormData();
-        for (var key in data) {
-            if (data.hasOwnProperty(key)) {
-                formData.append(key, data[key].value);
+    _generateFormData: function() {
+        var data = new FormData();
+        for (var key in this.formData) {
+            if (this.formData.hasOwnProperty(key)) {
+                data.append(key, this.formData[key].value);
             }
         }
-        return formData;
+        return data;
     },
 
     _empty: function() {
-        this.formData.component.value = '';
-        Bus.publish('components.empty');
+        this.formData = {};
+        Bus.publish('form.empty');
     },
 
     subscribe: function() {}

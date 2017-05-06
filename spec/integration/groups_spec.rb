@@ -13,7 +13,7 @@ describe 'Group' do
   it 'added generate a message' do
     GROUP_NAME = 'Dishes'
     request = {
-      'component' => GROUP_NAME
+      'group' => GROUP_NAME
     }
 
     post '/add-group/save', request

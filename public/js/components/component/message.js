@@ -3,30 +3,29 @@ Class('Components.Message', {
     Extends: Elements,
 
     initialize: function() {
-        Elements.Message.Super.call(this, 'message');
+        Components.Message.Super.call(this, 'message');
     },
 
-    empty: function() {
-        this.element.innerHTML = '';
-    },
-
-    make: function(response) {
-        this.empty();
-        var message = this._createMessage(response);
-        this.element.append(message);
-    },
-
-    _createMessage: function(response) {
+    _generateMessage: function(response) {
+        var components = this._componentsAdded(response);
         var message = document.createElement('p');
         message.className = 'component-message--added';
-        var text = 'Los componentes han sido añadidos con éxito.';
+        var text = 'Los componentes ' + components + ' han sido añadidos con éxito.';
         message.textContent = text;
         return message;
     },
 
+    _componentsAdded: function(response) {
+        var components = '';
+        response.forEach(function(component){
+            components += component.component + ', ';
+        });
+        return components.substring(0, components.length-2);
+    },
+
     subscribe: function() {
-        Bus.subscribe('components.empty', this.empty.bind(this));
-        Bus.subscribe('components.message', this.make.bind(this));
+        Bus.subscribe('form.empty', Components.Message.Super.prototype.empty.bind(this));
+        Bus.subscribe('form.message', Components.Message.Super.prototype.addMessage.bind(this));
     }
 
 });

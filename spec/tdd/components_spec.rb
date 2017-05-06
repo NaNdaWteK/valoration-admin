@@ -14,7 +14,7 @@ describe 'Components service' do
   end
 
   def simulated_request
-    request = { 'components' => ['Salsa brava', 'Patatas fritas'], 'element_id' => 1 }
+    request = { 'components' => "[\"Salsa brava\", \"Patatas fritas\"]", 'element_id' => 1 }
     return request
   end
 

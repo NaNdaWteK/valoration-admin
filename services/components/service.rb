@@ -2,23 +2,24 @@ require_relative '../../domain/component'
 require_relative '../common/tokens_factory'
 require_relative 'repository'
 require_relative 'component'
+require 'json'
 
 module Components
   class Service
     class << self
       def add(components_data)
-
         components = to_components(components_data)
+
         response = Repository.store(components)
 
         response = serialized(response)
-        
+
         return response
       end
 
       def to_components(data)
         element_id = data['element_id']
-        items = data['components']
+        items = JSON.parse(data['components'])
 
         components = to_array(items, element_id)
 

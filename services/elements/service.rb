@@ -8,7 +8,6 @@ module Elements
     class << self
 
       def add(element_data)
-
         element = to_element(element_data)
 
         element = Repository.store(element)

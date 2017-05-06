@@ -1,8 +1,8 @@
 module Domain
   class Element
-    def initialize(id, element)
+    def initialize(id, name)
       @id = id
-      @element = element
+      @element = name
     end
   end
 end

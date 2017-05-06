@@ -23,11 +23,11 @@ Class('Components.Add', {
         var input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('maxlength', '255');
-        input.setAttribute('name', 'component');
+        input.setAttribute('name', 'component[]');
         input.setAttribute('placeholder', 'Component to track');
         return input;
     },
-    
+
     _events: function() {
         this.element.addEventListener('click',this._addLine.bind(this));
     },

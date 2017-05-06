@@ -24,6 +24,10 @@ module Page
       has_content?(word)
     end
 
+    def add_more_components
+      find('#add').click
+    end
+
     private
 
     def validate!

@@ -11,11 +11,17 @@ Class('Page.Component', {
 
     _instaceComponents: function() {
         new Components.Add();
+        new Components.Form() ;
+        new Components.Message() ;
+        new Components.Submit();
     },
 
-    _instaceServices: function() {},
+    _instaceServices: function() {
+        new Services.Component();
+    },
 
     _instaceInfrastructure: function() {
+        new Forms();
         new Elements();
     },
 

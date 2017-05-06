@@ -6,16 +6,6 @@ Class('Elements.Message', {
         Elements.Message.Super.call(this, 'message');
     },
 
-    empty: function() {
-        this.element.innerHTML = '';
-    },
-
-    make: function(response) {
-        this.empty();
-        var message = this._generateMessage(response);
-        this.element.append(message);
-    },
-
     _generateMessage: function(response) {
         var message = document.createElement('p');
         message.className = 'element-message--added';
@@ -25,8 +15,8 @@ Class('Elements.Message', {
     },
 
     subscribe: function() {
-        Bus.subscribe('components.empty', this.empty.bind(this));
-        Bus.subscribe('components.message', this.make.bind(this));
+        Bus.subscribe('form.empty', Elements.Message.Super.prototype.empty.bind(this));
+        Bus.subscribe('form.message', Elements.Message.Super.prototype.addMessage.bind(this));
     }
 
 });

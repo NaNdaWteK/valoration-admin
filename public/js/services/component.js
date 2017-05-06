@@ -1,14 +1,14 @@
-Class('Services.Element', {
+Class('Services.Component', {
 
     Extends: Service,
 
     initialize: function() {
-        Services.Element.Super.call(this, '../../add-components');
+        Services.Component.Super.call(this, '../../add-components');
     },
 
     add: function(components) {
         this.doRequest(this.baseUrl + '/save', components, function(response) {
-            Bus.publish('components.added', response);
+            Bus.publish('form.added', response);
         });
     },
 
