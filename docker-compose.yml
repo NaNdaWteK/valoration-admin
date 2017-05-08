@@ -1,6 +1,8 @@
 version: '2'
+
 services:
   web:
+    image: nandawtek/valoration:latest
     container_name: valoration
     build: .
     ports:
@@ -11,7 +13,8 @@ services:
 
     links:
       - selenium
-    command: bundle exec rake
+      - mongocontainer
+    command: bash -c "bundle install --jobs 3 && bundle exec rake"
 
   selenium:
     image: selenium/standalone-chrome
@@ -20,6 +23,13 @@ services:
     container_name: valoration-chrome-browser
     logging:
       driver: none
+
+  mongocontainer:
+    container_name: valoration_mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    command: --smallfiles
 
 volumes:
   bundle:
