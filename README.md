@@ -66,7 +66,7 @@ Link: [docker install](https://docs.docker.com/compose/install/)
 
 ```
 
-docker build -t valoration .
+docker pull nandawtek/valoration:latest
 docker-compose build
 ```
 
