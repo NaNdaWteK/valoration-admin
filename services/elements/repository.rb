@@ -1,43 +1,26 @@
 require 'mongo'
-require_relative '../support/configuration'
+require_relative '../conexion/conexion'
 
 module Elements
   class Repository
 
-    class << self
-
-      def store(element)
-
-        collection.insert_one(element.serialize)
-        return element
-      end
-
-      def retrieve(id)
-        data = collection.find({ id: id }).first
-        return Elements::Element.from_bson(data)
-      end
-
-      def empty
-        collection.delete_many
-      end
-
-      private
-
-      def connection
-        @connection ||= Mongo::Client.new(
-          ["#{host}:27017"],
-          :database => 'valoration_db'
-        )
-      end
-
-      def collection
-        connection[:elements]
-      end
-
-      def host
-        Support::Configuration.host
-      end
-
+    def initialize
+      @conexion = Mongo::Conexion.new
     end
+
+    def store(element)
+      @conexion.elements.insert_one(element.serialize)
+      return element
+    end
+
+    def retrieve(id)
+      data = @conexion.elements.find({ id: id }).first
+      return Elements::Element.from_bson(data)
+    end
+
+    def empty
+      @conexion.elements.delete_many
+    end
+
   end
 end
