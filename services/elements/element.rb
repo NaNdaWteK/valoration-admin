@@ -5,6 +5,9 @@ module Elements
         'id' => @id,
         'element' => @element
       }
-    end    
+    end
+    def self.from_bson(bson)
+      return Elements::Element.new(bson['id'], bson['element'])
+    end
   end
 end

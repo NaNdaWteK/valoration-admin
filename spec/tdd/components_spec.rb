@@ -9,7 +9,7 @@ describe 'Components service' do
 
     response = Components::Service.add(request_data)
 
-    expect(response[1]['element_id']).to be RELATED_ID
+    expect(response[1]['element_id']).to eq RELATED_ID
 
   end
 

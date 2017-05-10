@@ -1,6 +1,6 @@
 development:
   clients:
     default:
-      database: consensus_db
+      database: valoration_db
       hosts:
         - localhost:27017
