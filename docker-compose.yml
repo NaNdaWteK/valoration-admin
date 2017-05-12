@@ -4,7 +4,6 @@ services:
   web:
     image: nandawtek/valoration:latest
     container_name: valoration
-    build: .
     ports:
       - ${SINATRA_DEFAULT_PORT}:${SINATRA_DEFAULT_PORT}
     volumes:
