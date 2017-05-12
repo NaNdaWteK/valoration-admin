@@ -8,5 +8,8 @@ module DB
     def groups
       @connection[:groups]
     end
+    def components
+      @connection[:components]
+    end
   end
 end

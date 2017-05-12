@@ -10,9 +10,7 @@ module Components
       def add(components_data)
         components = to_components(components_data)
 
-        response = Components::Repository.store(components)
-
-        response = serialized(response)
+        response = Components::Repository.store(serialized(components))
 
         return response
       end
