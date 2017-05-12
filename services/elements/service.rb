@@ -8,10 +8,9 @@ module Elements
     class << self
 
       def add(element_data)
-        repository = Elements::Repository.new
         element = to_element(element_data)
 
-        element = repository.store(element)
+        element = Elements::Repository.store(element)
 
         return element.serialize
       end
@@ -25,8 +24,7 @@ module Elements
       end
 
       def empty
-        repository = Elements::Repository.new
-        repository.empty
+        Elements::Repository.empty
       end
 
     end
