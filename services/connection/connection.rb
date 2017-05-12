@@ -5,5 +5,8 @@ module DB
     def elements
       @connection[:elements]
     end
+    def groups
+      @connection[:groups]
+    end
   end
 end

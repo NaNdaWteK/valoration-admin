@@ -6,5 +6,8 @@ module Groups
         'group' => @group
       }
     end
+    def self.from_bson(bson)
+      return Groups::Group.new(bson['id'], bson['group'])
+    end
   end
 end

@@ -11,8 +11,8 @@ module Groups
       def add(group_data)
 
         group = to_group(group_data)
-        
-        group = Repository.store(group)
+
+        group = Groups::Repository.store(group)
 
         return group.serialize
       end
