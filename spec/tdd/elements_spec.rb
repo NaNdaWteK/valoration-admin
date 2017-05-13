@@ -12,4 +12,13 @@ describe 'Elements service' do
 
   end
 
+  it 'show elements list' do
+    Elements::Service.add('Fresas con nata')
+
+    response = Elements::Service.list
+
+    expect(response.any?).to be true
+
+  end
+
 end

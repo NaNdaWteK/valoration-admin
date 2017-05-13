@@ -11,14 +11,28 @@ describe 'Element' do
   end
 
   it 'added generate a message' do
-    ELEMENT_NAME = 'Paella Valenciana'
+    element = 'Paella Valenciana'
     request = {
-      'element' => ELEMENT_NAME
+      'element' => element
     }
 
-    post '/add-element/save', request
+    post '/elements/save', request
     response = JSON.parse(last_response.body)
 
-    expect( response['element'] ).to eq(ELEMENT_NAME)
+    expect( response['element'] ).to eq(element)
   end
+
+  it 'added generate a message' do
+    element = 'Fresas con nata'
+    request = {
+      'element' => element
+    }
+    get '/elements/empty'
+    post '/elements/save', request
+    post '/elements/list'
+    response = JSON.parse(last_response.body)
+
+    expect( response[0]['element'] ).to eq(element)
+  end
+
 end

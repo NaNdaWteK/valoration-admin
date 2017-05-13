@@ -3,8 +3,8 @@ Class('Page.Element', {
     Extends: Page,
 
     initialize: function() {
-        this._instaceComponents();
         this._instaceServices();
+        this._instaceComponents();
         this._instaceInfrastructure();
         Page.Element.Super.call(this);
     },

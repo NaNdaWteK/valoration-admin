@@ -14,7 +14,7 @@ module Components
           connection.components.insert_many(components)
           connection.close
         rescue Mongo::Error => ex
-          raise ex, "Error al guardar el elemento"
+          raise ex, "Error al guardar el componente"
         end
 
         return components

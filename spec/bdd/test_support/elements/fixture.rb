@@ -6,6 +6,7 @@ module Elements
     extend Capybara::DSL
 
     ELEMENT_NAME = 'Paella Valenciana'
+    OTHER_ELEMENT = 'Melón con jamón'
 
     def self.empty
       visit('/elements/empty')
@@ -18,6 +19,14 @@ module Elements
       page.submit_form
       page
     end
+
+    def self.add_elements
+      page = self.add_element
+      page.fill_element(OTHER_ELEMENT)
+      page.submit_form
+      page
+    end
+
 
   end
 end

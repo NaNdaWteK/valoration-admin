@@ -7,7 +7,10 @@ module Elements
       }
     end
     def self.from_bson(bson)
-      return Elements::Element.new(bson['id'], bson['element'])
+      elements = Array.new
+      bson.each { |element| elements.push(Elements::Element.new(element['id'], element['element'])) }
+      elements.inspect
+      return elements
     end
   end
 end

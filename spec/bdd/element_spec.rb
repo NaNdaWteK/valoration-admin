@@ -10,4 +10,12 @@ feature "Elements" do
     expect(current.check_element?(Elements::Fixture::ELEMENT_NAME)).to be(true)
     expect(current.element_added_message?).to be(true)
   end
+
+  scenario 'added generate a message' do
+
+    current = Elements::Fixture.add_elements
+
+    expect(current.check_element?(Elements::Fixture::ELEMENT_NAME)).to be(true)
+
+  end
 end

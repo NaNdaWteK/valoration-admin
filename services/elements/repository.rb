@@ -28,6 +28,16 @@ module Elements
         end
       end
 
+      def list
+        begin
+          data = connection.elements.find
+          connection.close
+          return data
+        rescue Mongo::Error => ex
+          raise ex, "Error en la base de datos"
+        end
+      end
+
       def empty
         begin
           connection.elements.delete_many

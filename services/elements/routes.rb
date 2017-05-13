@@ -4,10 +4,16 @@ require_relative './service'
 
 class App < Sinatra::Base
 
-  post '/add-element/save' do
+  post '/elements/save' do
     result = Elements::Service.add(request['element'])
 
     return result.to_json
+  end
+
+  post '/elements/list' do
+    elements = Elements::Service.list
+
+    return elements.to_json
   end
 
   get '/elements/empty' do

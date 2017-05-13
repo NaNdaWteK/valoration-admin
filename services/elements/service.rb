@@ -15,6 +15,18 @@ module Elements
         return element.serialize
       end
 
+      def list
+        data = Elements::Repository.list
+        elements = Elements::Element.from_bson(data)
+        return serialized(elements)
+      end
+
+      def empty
+        Elements::Repository.empty
+      end
+
+      private
+
       def to_element(data)
         id = Identifiers::Token.generate_md5_id(data)
 
@@ -23,8 +35,12 @@ module Elements
         return element
       end
 
-      def empty
-        Elements::Repository.empty
+      def serialized(elements)
+        response = Array.new
+
+        elements.each { |element| response.push(element.serialize) }
+
+        return response
       end
 
     end
