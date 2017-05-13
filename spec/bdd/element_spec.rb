@@ -16,6 +16,7 @@ feature "Elements" do
     current = Elements::Fixture.add_elements
 
     expect(current.check_element?(Elements::Fixture::ELEMENT_NAME)).to be(true)
+    expect(current.check_element?(Elements::Fixture::OTHER_ELEMENT)).to be(true)
 
   end
 end
