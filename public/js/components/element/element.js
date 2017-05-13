@@ -4,12 +4,13 @@ Class('Elements.Form', {
 
     initialize: function() {
         Elements.Form.Super.call(this, 'element');
-        this.formData.element = document.getElementById('element');
         this.elementsList = document.getElementById('list');
+        this._prepareFormData();
         this._list();
     },
 
     add: function() {
+        this._prepareFormData();
         related_id = '';
         Bus.publish('elements.list', related_id);
         Bus.publish('service.add', this._generateFormData());
@@ -33,6 +34,10 @@ Class('Elements.Form', {
     _list: function() {
         related_id = '';
         Bus.publish('elements.list', related_id);
+    },
+
+    _prepareFormData: function() {
+        this.formData.element = document.getElementById('element');
     },
 
     subscribe: function() {

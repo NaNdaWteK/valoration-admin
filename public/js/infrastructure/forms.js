@@ -31,8 +31,15 @@ Class('Forms', {
     },
 
     _empty: function() {
+        this._emptyInput();
         this.formData = {};
         Bus.publish('form.empty');
+    },
+
+    _emptyInput: function() {
+        for (var key in this.formData) {
+            this.formData[key].value = '';
+        }
     },
 
     subscribe: function() {}
