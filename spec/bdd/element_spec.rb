@@ -11,7 +11,7 @@ feature "Elements" do
     expect(current.element_added_message?).to be(true)
   end
 
-  scenario 'added generate a message' do
+  scenario 'show list' do
 
     current = Elements::Fixture.add_elements
 

@@ -12,7 +12,7 @@ describe 'Elements service' do
 
   end
 
-  it 'show elements list' do
+  it 'retrieve list' do
     Elements::Service.add('Fresas con nata')
 
     response = Elements::Service.list

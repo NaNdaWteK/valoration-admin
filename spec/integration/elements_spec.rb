@@ -22,7 +22,7 @@ describe 'Element' do
     expect( response['element'] ).to eq(element)
   end
 
-  it 'added generate a message' do
+  it 'retrieve list' do
     element = 'Fresas con nata'
     request = {
       'element' => element
