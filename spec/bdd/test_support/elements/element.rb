@@ -21,7 +21,7 @@ module Page
     end
 
     def check_element?(element)
-      has_content?(element)
+      has_content?(element, wait: 1)
     end
 
     private

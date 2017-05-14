@@ -26,7 +26,7 @@ module Page
     end
 
     def check_message?(word)
-      has_content?(word)
+      has_content?(word, wait: 1)
     end
 
     def add_more_components

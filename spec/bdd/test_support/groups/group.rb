@@ -21,7 +21,7 @@ module Page
     end
 
     def check_group?(group)
-      has_content?(group)
+      has_content?(group, wait: 1)
     end
 
     private
