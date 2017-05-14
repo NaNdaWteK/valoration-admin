@@ -26,6 +26,8 @@ Class('Page.Element', {
 
     publish: function() {},
 
-    subscribe: function() {}
+    subscribe: function() {
+        Bus.subscribe('goto.components', Page.Element.Super.prototype.goToComponents.bind(this));
+    }
 
 });

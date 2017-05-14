@@ -8,6 +8,10 @@ Class('Components.Add', {
         this._events();
     },
 
+    setElementId: function(id){
+        document.getElementsByName('element_id')[0].value = id;
+    },
+
     _addLine: function() {
         var line = this._generateBlock();
         var input = this._generateInput();
@@ -33,6 +37,7 @@ Class('Components.Add', {
     },
 
     subscribe: function() {
+        Bus.subscribe('form.components.element_id', this.setElementId.bind(this));
     }
 
 });

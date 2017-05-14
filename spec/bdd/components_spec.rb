@@ -6,6 +6,7 @@ feature "Components" do
   let(:page) do
     Page::Components.new
   end
+  ELEMENT_ID = '4032840243'
   ONE_COMPONENT = 'Patatas fritas'
   ANOTHER_COMPONENT = 'Salsa brava'
 
@@ -16,6 +17,7 @@ feature "Components" do
     page.fill_component(ANOTHER_COMPONENT, 1)
     page.submit_form()
 
+   expect(page.related_id).to eq(ELEMENT_ID)
    expect(page.check_message?(ONE_COMPONENT)).to be(true)
    expect(page.check_message?(ANOTHER_COMPONENT)).to be(true)
   end

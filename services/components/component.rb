@@ -7,9 +7,11 @@ module Components
         'element_id' => @element_id
       }
     end
-    
+
     def self.from_bson(bson)
-      return Components::Component.new(bson['id'], bson['component'], bson['element_id'])
+      component = Components::Component.new(bson['id'], bson['component'])
+      component.related_key(bson['element_id'])
+      return component
     end
   end
 end

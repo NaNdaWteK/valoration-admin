@@ -2,6 +2,10 @@ Class('Elements.Form', {
 
     Extends: Forms,
 
+    STATIC: {
+        TEXT_BUTTON: 'Añadir Componentes',
+    },
+
     initialize: function() {
         Elements.Form.Super.call(this, 'element');
         this.elementsList = document.getElementById('list');
@@ -19,14 +23,24 @@ Class('Elements.Form', {
     showList: function(elements) {
         this.elementsList.innerHTML = '';
         elements.forEach(function(element){
+            var button = this._createButton(element.id);
             var item = this._makeElement(element);
+            item.append(button);
             this.elementsList.append(item);
         }.bind(this));
     },
 
+    _createButton: function(id) {
+        var button = document.createElement('button');
+        button.textContent = Elements.Form.TEXT_BUTTON;
+        button.onclick = function() {
+            Bus.publish('goto.components', id);
+        }.bind(id);
+        return button;
+    },
+
     _makeElement: function(element) {
         var item = document.createElement('li');
-        item.setAttribute('element_id', element.id);
         item.textContent = element.element;
         return item;
     },

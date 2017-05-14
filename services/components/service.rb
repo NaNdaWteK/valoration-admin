@@ -15,14 +15,21 @@ module Components
         return response
       end
 
+      def empty
+        Components::Repository.empty
+      end
+
+      private
+
       def to_components(data)
         element_id = data['element_id']
         items = JSON.parse(data['components'])
         components = Array.new
 
         items.each do |item|
-          id = Identifiers::Token.generate_md5_id(item)
-          component = Components::Component.new(id, item, element_id)
+          id = token(item)
+          component = Components::Component.new(id, item)
+          component.related_key(element_id)
           components.push(component)
         end
 
@@ -37,8 +44,8 @@ module Components
         return response
       end
 
-      def empty
-        Components::Repository.empty
+      def token(component_name)
+          return Identifiers::Token.generate_md5_id(component_name)
       end
     end
   end

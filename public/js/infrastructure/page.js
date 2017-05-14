@@ -1,8 +1,16 @@
 Class('Page', {
 
+    STATIC: {
+        ADD_COMPONENTS: '/add-components/',
+    },
+
     initialize: function(components) {
         this.publish();
         this.subscribe();
+    },
+
+    goToComponents: function(id) {
+        window.location = Page.ADD_COMPONENTS + id;
     },
 
     publish: function() {

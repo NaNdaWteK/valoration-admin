@@ -1,15 +1,20 @@
 module Page
   class Components
     include Capybara::DSL
+    ELEMENT_ID = 4032840243
 
     def initialize
-      url = '/add-components'
+      url = "/add-components/#{ELEMENT_ID}"
       visit(url)
       validate!
     end
 
     def fill_component(content, index)
       all("input")[index].set(content)
+    end
+
+    def related_id
+      find('#relatedId', :visible => false).value
     end
 
     def submit_form
@@ -37,6 +42,7 @@ module Page
       page.assert_selector("input[type='text']")
       page.assert_selector('.icon-plus')
       page.assert_selector('#submit')
+      page.assert_selector('#relatedId', visible: false)
     end
   end
 end

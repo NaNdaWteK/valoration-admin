@@ -7,6 +7,7 @@ Class('Page.Component', {
         this._instaceServices();
         this._instaceInfrastructure();
         Page.Component.Super.call(this);
+        this.retrieveId();
     },
 
     _instaceComponents: function() {
@@ -23,6 +24,12 @@ Class('Page.Component', {
     _instaceInfrastructure: function() {
         new Forms();
         new Elements();
+    },
+
+    retrieveId: function() {
+        var url = window.location.href;
+        id = url.split('add-components/')[1];
+        Bus.publish('form.components.element_id', id);
     },
 
     publish: function() {},

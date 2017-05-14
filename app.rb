@@ -18,7 +18,7 @@ class App < Sinatra::Base
     File.read(File.join('public', 'elements.html'))
   end
 
-  get '/add-components' do
+  get '/add-components/:id' do
     File.read(File.join('public', 'components.html'))
   end
 
