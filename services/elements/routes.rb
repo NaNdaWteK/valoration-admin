@@ -5,6 +5,7 @@ require_relative './service'
 class App < Sinatra::Base
 
   post '/elements/save' do
+    response.headers['Access-Control-Allow-Origin'] = '*'
     result = Elements::Service.add(request['element'])
 
     return result.to_json
