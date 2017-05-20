@@ -9,7 +9,6 @@ module Elements
     def self.from_bson(bson)
       elements = Array.new
       bson.each { |element| elements.push(Elements::Element.new(element['id'], element['element'])) }
-      elements.inspect
       return elements
     end
   end

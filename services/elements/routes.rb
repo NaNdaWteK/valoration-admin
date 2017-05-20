@@ -11,7 +11,8 @@ class App < Sinatra::Base
     return result.to_json
   end
 
-  post '/elements/list' do
+  post '/elements/list/:group_id' do
+    response.headers['Access-Control-Allow-Origin'] = '*'
     elements = Elements::Service.list
 
     return elements.to_json

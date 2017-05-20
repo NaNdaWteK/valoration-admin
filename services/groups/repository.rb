@@ -28,6 +28,16 @@ module Groups
         end
       end
 
+      def list
+        begin
+          data = connection.groups.find
+          connection.close
+          return data
+        rescue Mongo::Error => ex
+          raise ex, "Error en la base de datos"
+        end
+      end
+
       def empty
         begin
           connection.groups.delete_many

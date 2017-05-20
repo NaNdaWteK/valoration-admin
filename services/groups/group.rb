@@ -7,7 +7,9 @@ module Groups
       }
     end
     def self.from_bson(bson)
-      return Groups::Group.new(bson['id'], bson['group'])
+      groups = Array.new
+      bson.each { |group| groups.push(Groups::Group.new(group['id'], group['group'])) }
+      return groups
     end
   end
 end

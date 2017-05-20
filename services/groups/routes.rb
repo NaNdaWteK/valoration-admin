@@ -11,6 +11,13 @@ class App < Sinatra::Base
     result.to_json
   end
 
+  post '/groups/list/:company_id' do
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    groups = Groups::Service.list
+
+    return groups.to_json
+  end
+
   get '/groups/empty' do
     Groups::Service.empty
   end
