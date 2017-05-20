@@ -13,7 +13,7 @@ Class('Services.Element', {
     },
 
     list: function(related_id) {
-        this.doRequest(this.baseUrl + '/list', related_id, function(response) {
+        this.doRequest(this.baseUrl + '/list/1', related_id, function(response) {
             Bus.publish('elements.list.retrieved', response);
         });
     },

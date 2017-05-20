@@ -29,7 +29,7 @@ describe 'Element' do
     }
     get '/elements/empty'
     post '/elements/save', request
-    post '/elements/list'
+    post '/elements/list/1'
     response = JSON.parse(last_response.body)
 
     expect( response[0]['element'] ).to eq(element)
