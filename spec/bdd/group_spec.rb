@@ -5,9 +5,16 @@ require_relative 'test_support/groups/fixture'
 feature "Group" do
   scenario 'added generate a message' do
 
-    current = Groups::Fixture.add_group
+    group = Groups::Fixture.add_group
 
-    expect(current.check_group?(Groups::Fixture::GROUP_NAME)).to be(true)
-    expect(current.group_added_message?).to be(true)
+    expect(group.check?(Groups::Fixture::GROUP_NAME)).to be(true)
+    expect(group.added?).to be(true)
+  end
+
+  scenario 'added to groups' do
+
+    group = Groups::Fixture.add_groups
+
+    expect(group.check?(Groups::Fixture::OTHER_GROUP)).to eq(true)
   end
 end

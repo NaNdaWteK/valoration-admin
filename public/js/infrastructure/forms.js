@@ -7,15 +7,6 @@ Class('Forms', {
         this.formData = {};
     },
 
-    add: function() {
-        Bus.publish('service.add', this._generateFormData());
-    },
-
-    added: function(response){
-        this._empty();
-        this._show(response);
-    },
-
     _show: function(response) {
         Bus.publish('form.message', response);
     },

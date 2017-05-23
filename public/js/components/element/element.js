@@ -14,10 +14,15 @@ Class('Elements.Form', {
     },
 
     add: function() {
-        this._prepareFormData();
         related_id = '';
         Bus.publish('elements.list', related_id);
         Bus.publish('service.add', this._generateFormData());
+    },
+
+    added: function(response){
+        this._empty();
+        this._prepareFormData();
+        this._show(response);
     },
 
     showList: function(elements) {
@@ -56,7 +61,7 @@ Class('Elements.Form', {
 
     subscribe: function() {
         Bus.subscribe('form.submit', this.add.bind(this));
-        Bus.subscribe('form.added', Elements.Form.Super.prototype.added.bind(this));
+        Bus.subscribe('form.added', this.added.bind(this));
         Bus.subscribe('elements.list.retrieved', this.showList.bind(this));
     }
 

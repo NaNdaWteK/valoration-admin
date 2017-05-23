@@ -6,6 +6,7 @@ module Groups
     extend Capybara::DSL
 
     GROUP_NAME = 'Dishes'
+    OTHER_GROUP = 'Desserts'
 
     def self.empty
       visit('/groups/empty')
@@ -13,10 +14,18 @@ module Groups
     end
 
     def self.add_group
-      page = self.empty
-      page.fill_group(GROUP_NAME)
-      page.submit_form
-      page
+      group = self.empty
+      group.fill(GROUP_NAME)
+      group.submit
+      group
     end
+
+    def self.add_groups
+      group = self.add_group
+      group.fill(OTHER_GROUP)
+      group.submit
+      group
+    end
+
   end
 end
